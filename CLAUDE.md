@@ -34,6 +34,44 @@ a PCUI rebuild after every edit. The consuming Vite config must deduplicate
 `react`, `react-dom`, and `@playcanvas/observer`, and allow the submodule source
 path when it sits outside the configured server root.
 
+### Strict TypeScript consumers
+
+Runtime source and compile-time declarations deliberately use separate alias
+targets. A strict consumer maps the TypeScript-only AI entry to the public
+facade, while Vite maps the same specifier to the runtime source barrel:
+
+```json
+{
+  "compilerOptions": {
+    "paths": {
+      "@playcanvas/pcui/ai": [
+        "../../../packages/pcui-ai/src/components-ai/consumer.d.ts"
+      ]
+    }
+  }
+}
+```
+
+```ts
+// vite.config.ts
+{
+  find: /^@playcanvas\/pcui\/ai$/,
+  replacement: '<repo>/packages/pcui-ai/src/components-ai/index.tsx',
+}
+```
+
+`consumer.d.ts` is a hand-maintained declaration facade. It imports only React
+and `@playcanvas/observer`; its PCUI bridge constraint is structural, so it does
+not expose relative fork source types to the application. Keep it synchronized
+with every public export from `src/components-ai/index.tsx`.
+
+For core PCUI imports, TypeScript may continue resolving the installed
+`@playcanvas/pcui` package declarations. If a consumer needs an explicit core
+`paths` entry, point it at that installed declaration entry, not this fork's
+raw `src/index.ts`. Vite may still use the exact runtime alias from the previous
+section to execute the fork source. This declaration/runtime split avoids
+duplicate nominal PCUI type identities while retaining source HMR.
+
 ## Publishing and the gitlink bump
 
 The fork commit must be pushed before Porcellana points at it; a gitlink to an
