@@ -1,0 +1,78 @@
+@use 'sass:color';
+@import 'variables-common';
+
+$bcg-darkest: #041216;
+$bcg-darker: #07191e;
+$bcg-dark: #0a1d22;
+$bcg-primary: #102a31;
+$text-darkest: #527b7b;
+$text-dark: #80aaa8;
+$text-secondary: #b8d3d1;
+$text-primary: #ecfffd;
+$text-active: #9fe4dd;
+$error: #ffaaa0;
+$error-secondary: #b85f5a;
+$border-primary: #1d4048;
+$element-shadow-hover: 0 0 2px 1px rgb(100 215 210 / 30%);
+$element-shadow-active: 0 0 0 1px rgb(100 215 210 / 30%);
+$element-shadow-error: 0 0 0 1px $error-secondary;
+$element-color-placeholder: #527b7b;
+
+@import 'fonts';
+@import 'common';
+@import 'components';
+@import '../components/Element/style';
+@import '../components/InputElement/style';
+@import '../components/TextAreaInput/style';
+@import '../components/NumericInput/style';
+@import '../components/SliderInput/style';
+@import '../components/VectorInput/style';
+@import '../components/BooleanInput/style';
+@import '../components/Label/style';
+@import '../components/Button/style';
+@import '../components/Code/style';
+@import '../components/Container/style';
+@import '../components/Canvas/style';
+@import '../components/ColorPicker/style';
+@import '../components/GradientPicker/style';
+@import '../components/Panel/style';
+@import '../components/Overlay/style';
+@import '../components/Divider/style';
+@import '../components/InfoBox/style';
+@import '../components/SelectInput/style';
+@import '../components/Spinner/style';
+@import '../components/Progress/style';
+@import '../components/TreeView/style';
+@import '../components/LabelGroup/style';
+@import '../components/GridView/style';
+@import '../components/GridViewItem/style';
+@import '../components/Menu/style';
+@import '../components/MenuItem/style';
+@import '../components/RadioButton/style';
+@import '../components/ArrayInput/style';
+@import '../components-ai/styles';
+
+/* stylelint-disable custom-property-empty-line-before -- Keep the public theme tokens together. */
+:root {
+    color-scheme: dark;
+    --pcui-ai-ground: #041216;
+    --pcui-ai-ground-raised: #041317;
+    --pcui-ai-panel-deep: #06171c;
+    --pcui-ai-panel: #0a1d22;
+    --pcui-ai-panel-hover: #0d252b;
+    --pcui-ai-panel-strong: #102a31;
+    --pcui-ai-border: #1d4048;
+    --pcui-ai-border-soft: #123039;
+    --pcui-ai-border-hover: #32616a;
+    --pcui-ai-text: #d9efed;
+    --pcui-ai-muted: #80aaa8;
+    --pcui-ai-faint: #527b7b;
+    --pcui-ai-accent: #9fe4dd;
+    --pcui-ai-accent-strong: #64d7d2;
+    --pcui-ai-accent-wash: rgb(100 215 210 / 12%);
+    --pcui-ai-action: #174449;
+    --pcui-ai-action-hover: #20575d;
+    --pcui-ai-danger: #ffaaa0;
+    --pcui-ai-shadow: 0 22px 70px rgb(0 0 0 / 34%);
+}
+/* stylelint-enable custom-property-empty-line-before */
