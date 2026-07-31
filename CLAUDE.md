@@ -16,6 +16,10 @@ The Undertow palette is reusable presentation, not application logic.
 AI-component styles. Do not move layout or feature-specific selectors from a
 consumer application into this repository.
 
+Chat lifecycle and rendering belong to maintained chat/AI SDK packages in the
+consumer application. Do not add a bespoke chat transcript, composer,
+transport, stream parser, or agent-session model to `components-ai`.
+
 ## Source aliases and HMR
 
 Porcellana consumes this checkout as source during development. Use exact-match
